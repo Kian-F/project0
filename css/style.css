@@ -9,7 +9,18 @@ h2 #gameMessage{
   font-size: 50px;
 
 }
+.scoreboard{
+  text-align: center;
+  display: inline-block;
 
+}
+#score{
+  background-color: white;
+  margin: 5px;
+
+  font-size: 30px;
+  text-align: center;
+}
 
 .row{
 
@@ -26,11 +37,18 @@ h2 #gameMessage{
 
 }
 button{
-  padding: 30px;
+  padding: 20px;
   font-size: 20px;
   margin-top: 10px;
+
 }
 .win{
   background-color: red;
-  background-image:
+  /* background-image: */
+}
+.imgeX{
+  background-image:url(xImg.png);
+}
+.imgeO{
+  background-image:url(oImg.png);
 }
