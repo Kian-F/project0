@@ -30,29 +30,34 @@ function win() {
   const col5 = $("#col5");
   const col6 = $("#col6");
   const col7 = $("#col7");
+  const col8 = $("#col8");
 
   if (col0.text() != '' && col0.text() === col1.text() && col1.text() === col2.text()) {
     winerColor(col0, col1, col2);
     status = "stop";
   } else if (col3.text() != '' && col3.text() === col4.text() && col4.text() === col5.text()) {
-    winerColor(c3, c4, c5);
-  } else if (col6.text() != '' && col6.text() === col7.text() && col7.text() === col7.text()) {
-    winerColor(c1, c2, c3);
+    winerColor(col3, col4, col5);
+    status = "stop";
+  } else if (col6.text() != '' && col6.text() === col7.text() && col7.text() === col8.text()) {
+    winerColor(col6, col7, col8);
+    status = "stop";
   } else if (col0.text() != '' && col0.text() === col3.text() && col3.text() === col6.text()) {
-    winerColor(c1, c2, c3);
+    winerColor(col0, col3, col6);
+    status = "stop";
   } else if (col1.text() != '' && col1.text() === col4.text() && col4.text() === col7.text()) {
-    winerColor(c1, c2, c3);
-  } else if (col2.text() != '' && col2.text() === col5.text() && col5.text() === col7.text()) {
-    winerColor(c1, c2, c3);
-  } else if (col0.text() != '' && col0.text() === col4.text() && col4.text() === col7.text()) {
-    winerColor(c1, c2, c3);
-  } else if (col2.text() != '' && col2.text() === col4.text() && col4.text() === col7.text()) {
-    winerColor(c1, c2, c3);
+    winerColor(col1, col4, col7);
+    status = "stop";
+  } else if (col2.text() != '' && col2.text() === col5.text() && col5.text() === col8.text()) {
+    winerColor(col2, col5, col8);
+    status = "stop";
+  } else if (col0.text() != '' && col0.text() === col4.text() && col4.text() === col8.text()) {
+    winerColor(col0, col4, col8);
+    status = "stop";
+  } else if (col2.text() != '' && col2.text() === col4.text() && col4.text() === col6.text()) {
+    winerColor(col2, col4, col6);
+    status = "stop";
   }
 }
-
-
-
 
 // $(document).ready(function() {
 //   const grid = [
