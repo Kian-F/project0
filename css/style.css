@@ -1,0 +1,36 @@
+body{
+  margin: 0px;
+  margin-top: 10px;
+  background-color: blue;
+  text-align: center;
+  margin-top: 100px;
+}
+h2 #gameMessage{
+  font-size: 50px;
+
+}
+
+
+.row{
+
+}
+.column{
+  display: inline-block;
+  width: 80px;
+  height: 70px;
+  text-align: center;
+  background-color: white;
+  margin-top: 2px;
+  padding: 30px;
+  vertical-align: top;
+
+}
+button{
+  padding: 30px;
+  font-size: 20px;
+  margin-top: 10px;
+}
+.win{
+  background-color: red;
+  background-image:
+}
