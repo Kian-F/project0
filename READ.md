@@ -1,3 +1,30 @@
-# TIC TAC TOE Project0 https://camo.githubusercontent.com/6ce15b81c1f06d716d753a61f5db22375fa684da/68747470733a2f2f67612d646173682e73332e616d617a6f6e6177732e636f6d2f70726f64756374696f6e2f6173736574732f6c6f676f2d39663838616536633963333837313639306533333238306663663535376633332e706e67
-This is a simple Tic Tac Toe game.
-This was created as an assignment as part of the General Assembly Software Engineering Immersive course (2019).
+## TIC TAC TOE Project0 
+The main goal was to make a simple Tic Tac Toe game.
+This project was built as part of the Software Engineering Immersive Course at General Assembly, Sydney 2019.
+
+### Big Goals
+  - Build a web application from scratch, without a starter codebase
+  - Use our programming skills to map out the game logic for a simple game like Tic Tac Toe
+  - Separate HTML, CSS, and JavaScript files in the application
+  - Build an application to a spec that someone else gives you
+  - Build a dynamic game that allows two players to compete
+  - Craft a readme.md file that explains the app to the world
+  
+#### Technical Requirements
+- Render a game board in the browser
+- Switch turns between X and O (or whichever markers you select)
+- Visually display which side won if a player gets three in a row or show a draw/"cat’s game" if neither wins
+- Include separate HTML / CSS / JavaScript files
+- Stick with KISS (Keep It Simple Stupid) and DRY (Don't Repeat Yourself) principles
+- Use Javascript for DOM manipulation
+- Deploy your game online, where the rest of the world can access it
+- Use semantic markup for HTML and CSS (adhere to best practices)
+
+#### Technologies Used
+- html
+- css
+- JavaScript
+- jquery (jquery-1.7.2.js)
+
+#### Further Development
+* develop AI for the game
