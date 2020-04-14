@@ -1,22 +1,37 @@
-* {
+
+@import url('https://fonts.googleapis.com/css?family=Monoton&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata|Monoton&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
-}
+} */
 
-.container {
+/* .container {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background: #eee;
-}
+} */
 
 h1 {
-  font-size: 5rem;
-  margin-bottom: 0.5em;
+  
+    text-align: center;
+    font-weight: lighter;
+    font-size: 62px;
+    margin: 40px auto;
+  
+    /* metal theme */
+    font-family: 'Josefin Sans', sans-serif;
+    color: #a3a3a3;
+    letter-spacing: 10px;
+    text-shadow: -5px 2px 6px;
+  
+  
 }
 
 h2 {
@@ -124,4 +139,116 @@ button:hover {
     margin-top: 1em;
     font-size: 1.3rem;
   }
+}
+
+.container {
+  height: 221px;
+  width: 505px;
+
+  margin: 0 auto;
+  display: block;
+}
+
+
+.scoreBoard {
+
+  display: inline-block;
+
+  height: 120px;
+  width: 78px;
+
+
+}
+
+#scoreBoardLeft {
+  margin: 50px 140px 50px 25px;
+}
+
+#scoreBoardRight {
+  margin: 50px 26px 49px 151px;
+}
+
+.playerNames {
+  display: inline-block;
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+  letter-spacing: 4px;
+
+  font-size: small;
+  padding: 0px 0px 0px 4px;
+
+  margin-top: 5px;
+  margin-bottom: 0;
+
+}
+
+.playerCounter {
+  display: inline-block;
+  text-align: center;
+  letter-spacing: 4px;
+
+  font-size: 55px;
+  margin: 0 17px 0px 17px;
+  padding-left: 3px;
+}
+
+
+#o {
+  /* default */
+  /* color: #d6d6d6; */
+
+  /* turn identifier; */
+  color: #5490ff;
+}
+
+#x {
+  /* default */
+  color: #d6d6d6;
+
+  /* turn identifier; */
+  /* color: #5b9665; */
+}
+
+
+.score {
+
+  display: inline-block;
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+  letter-spacing: 6px;
+  font-size: small;
+  padding: 0px 0px 0px 5px;
+  margin-top: 5px;
+  margin-bottom: 0;
+
+}
+
+
+.scoreCount {
+
+  display: inline-block;
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+  letter-spacing: 4px;
+
+  margin: 0;
+  padding-left: 36px;
+
+}
+.counterZero {
+  /* metal color */
+  color: #d6d6d6;
+
+  display: table;
+  margin: 0 auto;
+  font-size: 55px;
+}
+
+.counterX {
+  /* metal color */
+  color: #d6d6d6;
+
+  display: table;
+  margin: 0 auto;
+  font-size: 55px;
 }

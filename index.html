@@ -12,12 +12,20 @@
 <body>
     <div class="container">
         <h1>Tic-Tac-Toe</h1>
+        <div class="scoreBoard" id="scoreBoardLeft">
+          <p class="playerNames">PLAYER</p>
+          <p class="playerCounter" id="o">O</p><p class="score">SCORE</p>
+          <p class="scoreCount" id="scoreCountO"></p></div>
         <div class="play-area">
 
         </div>
         <h2 id="winner"></h2>
+        <div class="scoreBoard" id="scoreBoardRight">
+          <p class="playerNames">PLAYER</p><p class="playerCounter" id="x">X</p>
+          <p class="score">SCORE</p><p class="scoreCount" id="scoreCountX"></p></div>
         <button onclick="reset_board()">RESET</button>
     </div>
+   
     <script src="js/jquery-1.7.2.js"></script>
     <script src="js/main.js"></script>
     
