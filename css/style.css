@@ -91,6 +91,8 @@ h2 {
 
 .win {
   background: #0ff30f;
+  opacity: .5;
+  
 }
 
 .win:hover {

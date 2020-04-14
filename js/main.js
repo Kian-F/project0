@@ -31,31 +31,31 @@ const check_line = (a, b, c) => {
 const check_match = () => {
   for (i = 0; i < 9; i += 3) {
     if (check_line(i, i + 1, i + 2)) {
-      $(`#block_${i}`).add("win");
-      $(`#block_${i + 1}`).add("win");
-      $(`#block_${i + 2}`).add("win");
+      $(`#block_${i}`).addClass("win");
+      $(`#block_${i + 1}`).addClass("win");
+      $(`#block_${i + 2}`).addClass("win");
       return play_board[i];
       $;
     }
   }
   for (i = 0; i < 3; i++) {
     if (check_line(i, i + 3, i + 6)) {
-      $(`#block_${i}`).add("win");
-      $(`#block_${i + 3}`).add("win");
-      $(`#block_${i + 6}`).add("win");
+      $(`#block_${i}`).addClass("win");
+      $(`#block_${i + 3}`).addClass("win");
+      $(`#block_${i + 6}`).addClass("win");
       return play_board[i];
     }
   }
   if (check_line(0, 4, 8)) {
-    $("#block_0").add("win");
-    $("#block_4").add("win");
-    $("#block_8").add("win");
+    $("#block_0").addClass("win");
+    $("#block_4").addClass("win");
+    $("#block_8").addClass("win");
     return play_board[0];
   }
   if (check_line(2, 4, 6)) {
-    $("#block_2").add("win");
-    $("#block_4").add("win");
-    $("#block_6").add("win");
+    $("#block_2").addClass("win");
+    $("#block_4").addClass("win");
+    $("#block_6").addClass("win");
     return play_board[2];
   }
   return "";
@@ -66,13 +66,13 @@ const check_for_winner = () => {
   if (res == player) {
     winner.innerText = "Player's Win!!";
     winner.classList.add("playerWin");
-    scoreO+=1;
-    console.log(scoreO)
+    
+    $('#scoreCountO').text((scoreO+=1))
     board_full = true;
   } else if (res == computer) {
     winner.innerText = "Computer's Win";
     winner.classList.add("computerWin");
-    scoreX+=1;
+    $('#scoreCountX').text((scoreX+=1))
     board_full = true;
   } else if (board_full) {
     winner.innerText = "Draw!";
@@ -85,7 +85,7 @@ const render_board = () => {
   play_board.forEach((e, i) => {
     board_container.innerHTML += `<div id="block_${i}" class="block" onclick="addPlayerMove(${i})">${play_board[i]}</div>`;
     if (e == player || e == computer) {
-      $(`#block_${i}`).add("occupied");
+      $(`#block_${i}`).addClass("occupied");
     }
   });
 };
