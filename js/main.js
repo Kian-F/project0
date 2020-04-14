@@ -1,182 +1,125 @@
-var markers = ["X", "O"];
-let turn = 0;
-let status = "active";
+const player = "O";
+const computer = "X";
 let scoreX = 0;
 let scoreO = 0;
-let counter = 0;
-let availeble = [];
-let currentPlayer;
-let grid = ["", "", "", "", "", "", "", "", ""];
-let board;
-let huPlayer;
 
-$(document).ready(function () {
-  $("#col0").fadeIn(5000);
-});
-$(".column").on("click", function () {
-  if ($(this).text().length > 0) return;
-  if (status === "stop") return;
-  $(this).text(markers[turn]);
-  if (markers[turn] === "X") {
-    $(this).addClass("imgeX");
-  } else {
-    $(this).addClass("imgeO");
-  }
-  if (turn == 1) turn = 0;
-  else turn = 1;
+let board_full = false;
+let play_board = ["", "", "", "", "", "", "", "", ""];
 
-  counter++;
-  win();
-  const cells = $(".column");
-  board = Array.from(Array(9).keys());
+const board_container = document.querySelector(".play-area");
 
-  for (let i = 0; i < cells.length; i++) {
-    cells[i].addEventListener("click", turnClick, false);
-  }
+const winner_statement = document.getElementById("winner");
 
-  function turnClick(square) {
-    if (typeof board[square.target.id] == "number") {
-      turn(square.target.id, huPlayer);
-      if (!checkTie()) turn(bestSpot(), aiPlayer);
+check_board_complete = () => {
+  let flag = true;
+  play_board.forEach((element) => {
+    if (element != player && element != computer) {
+      flag = false;
     }
-  }
-  function turn(squareId, player) {
-    borad[squareId] = player;
-    document.getElementById(squareId).innerText = player;
-  }
-
-  // draw is when there are 9 plays and no winners
-  if (counter >= 9 && status !== "stop") {
-    drawMessage();
-  }
-});
-
-// const drawMessage = function(){
-//   $()
-// }
-
-function winerColor(c0, c1, c2) {
-  c0.addClass("win");
-  c1.addClass("win");
-  c2.addClass("win");
-}
-
-function win() {
-  const col0 = $("#col0");
-  const col1 = $("#col1");
-  const col2 = $("#col2");
-  const col3 = $("#col3");
-  const col4 = $("#col4");
-  const col5 = $("#col5");
-  const col6 = $("#col6");
-  const col7 = $("#col7");
-  const col8 = $("#col8");
-  let winer = "";
-
-  if (
-    col0.text() != "" &&
-    col0.text() === col1.text() &&
-    col1.text() === col2.text()
-  ) {
-    winerColor(col0, col1, col2);
-    winer = col0.text();
-  } else if (
-    col3.text() != "" &&
-    col3.text() === col4.text() &&
-    col4.text() === col5.text()
-  ) {
-    winerColor(col3, col4, col5);
-    winer = col3.text();
-  } else if (
-    col6.text() != "" &&
-    col6.text() === col7.text() &&
-    col7.text() === col8.text()
-  ) {
-    winerColor(col6, col7, col8);
-    winer = col6.text();
-  } else if (
-    col0.text() != "" &&
-    col0.text() === col3.text() &&
-    col3.text() === col6.text()
-  ) {
-    winerColor(col0, col3, col6);
-    winer = col0.text();
-  } else if (
-    col1.text() != "" &&
-    col1.text() === col4.text() &&
-    col4.text() === col7.text()
-  ) {
-    winerColor(col1, col4, col7);
-    winer = col1.text();
-  } else if (
-    col2.text() != "" &&
-    col2.text() === col5.text() &&
-    col5.text() === col8.text()
-  ) {
-    winerColor(col2, col5, col8);
-    winer = col2.text();
-  } else if (
-    col0.text() != "" &&
-    col0.text() === col4.text() &&
-    col4.text() === col8.text()
-  ) {
-    winerColor(col0, col4, col8);
-    winer = col0.text();
-  } else if (
-    col2.text() != "" &&
-    col2.text() === col4.text() &&
-    col4.text() === col6.text()
-  ) {
-    winerColor(col2, col4, col6);
-    winer = col2.text();
-  }
-  if (winer === "X") {
-    $("#xscore").text((scoreX += 1));
-    $("#WinXMessage").css("visibility", "visible");
-    $("#boardGame").css("visibility", "hidden");
-    status = "stop";
-  } else if (winer === "O") {
-    $("#oscore").text((scoreO += 1));
-    $(".WinOMessage").css("visibility", "visible");
-    $("#boardGame").css("visibility", "hidden");
-    status = "stop";
-  }
-}
-
-function restart() {
-  status = "active";
-  turn = 0;
-  counter = 0;
-  $(".column").removeClass("win").empty();
-  $(".column").removeClass("imgeX").empty();
-  $(".column").removeClass("imgeO").empty();
-  $(".WinXMessage").removeClass("WinXMessage").empty();
-  $(".WinOMessage").removeClass("WinOMessage").empty();
-  $(".boardGame").removeClass("DrawMessage");
-}
-
-$("#restart").on("click", function () {
-  restart();
-});
-
-const drawMessage = function () {
-  $("#message").text("Draw").css({
-    color: "#ff5454",
-    visibility: "visible",
-    "font-size": "17px",
-    "letter-spacing": "2px",
-    "line-height": "24px",
   });
-  setTimeout(function () {
-    $("#message").fadeOut();
-  }, 3000);
-  return true;
+  board_full = flag;
 };
 
-$("#drawRemove").on("click", function () {
-  restart();
-});
+const check_line = (a, b, c) => {
+  return (
+    play_board[a] == play_board[b] &&
+    play_board[b] == play_board[c] &&
+    (play_board[a] == player || play_board[a] == computer)
+  );
+};
 
-// function computerPlay() {
-//
-// }
+const check_match = () => {
+  for (i = 0; i < 9; i += 3) {
+    if (check_line(i, i + 1, i + 2)) {
+      $(`#block_${i}`).add("win");
+      $(`#block_${i + 1}`).add("win");
+      $(`#block_${i + 2}`).add("win");
+      return play_board[i];
+      $;
+    }
+  }
+  for (i = 0; i < 3; i++) {
+    if (check_line(i, i + 3, i + 6)) {
+      $(`#block_${i}`).add("win");
+      $(`#block_${i + 3}`).add("win");
+      $(`#block_${i + 6}`).add("win");
+      return play_board[i];
+    }
+  }
+  if (check_line(0, 4, 8)) {
+    $("#block_0").add("win");
+    $("#block_4").add("win");
+    $("#block_8").add("win");
+    return play_board[0];
+  }
+  if (check_line(2, 4, 6)) {
+    $("#block_2").add("win");
+    $("#block_4").add("win");
+    $("#block_6").add("win");
+    return play_board[2];
+  }
+  return "";
+};
+
+const check_for_winner = () => {
+  let res = check_match();
+  if (res == player) {
+    winner.innerText = "Player's Win!!";
+    winner.classList.add("playerWin");
+    board_full = true;
+  } else if (res == computer) {
+    winner.innerText = "Computer's Win";
+    winner.classList.add("computerWin");
+    board_full = true;
+  } else if (board_full) {
+    winner.innerText = "Draw!";
+    winner.classList.add("draw");
+  }
+};
+
+const render_board = () => {
+  board_container.innerHTML = "";
+  play_board.forEach((e, i) => {
+    board_container.innerHTML += `<div id="block_${i}" class="block" onclick="addPlayerMove(${i})">${play_board[i]}</div>`;
+    if (e == player || e == computer) {
+      $(`#block_${i}`).add("occupied");
+    }
+  });
+};
+
+const game_loop = () => {
+  render_board();
+  check_board_complete();
+  check_for_winner();
+};
+
+const addPlayerMove = (e) => {
+  if (!board_full && play_board[e] == "") {
+    play_board[e] = player;
+    game_loop();
+    addComputerMove();
+  }
+};
+
+const addComputerMove = () => {
+  if (!board_full) {
+    do {
+      selected = Math.floor(Math.random() * 9);
+    } while (play_board[selected] != "");
+    play_board[selected] = computer;
+    game_loop();
+  }
+};
+
+const reset_board = () => {
+  play_board = ["", "", "", "", "", "", "", "", ""];
+  board_full = false;
+  winner.classList.remove("playerWin");
+  winner.classList.remove("computerWin");
+  winner.classList.remove("draw");
+  winner.innerText = "";
+  render_board();
+};
+
+//initial render
+render_board();
