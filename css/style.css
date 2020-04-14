@@ -37,10 +37,27 @@ h1 {
 h2 {
   margin-top: 1em;
   font-size: 2rem;
-  margin-bottom: 0.5em;
+  margin: -30px 0px 0 160px;
 }
 
 .play-area {
+  /* clean silver border */
+  border: 10px solid rgba(190, 190, 190, 0.94);
+  border-left-color: rgba(136, 136, 136, 0.94);
+  border-bottom-color: rgba(136, 136, 136, 0.94);
+  background-image: url(https://images.unsplash.com/photo-1509644851169-2acc08aa25b5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2400&q=80);
+  background-color: rgba(136, 136, 136, 0.94);
+  box-shadow: -2px 5px 15px;
+  height: 206px;
+  width: 206px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background-size: cover;
+  padding: 10px;
   display: grid;
   width: 300px;
   height: 300px;
@@ -48,15 +65,19 @@ h2 {
 }
 
 .block {
-  display: flex;
-  width: 100px;
-  height: 100px;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
-  font-weight: bold;
-  border: 3px solid black;
-  /* transition: background 0.2s ease-in-out; */
+  /* brushed metal version */
+  border: 1px solid rgba(194, 194, 194, 0.31);
+  border-bottom: 3px solid rgba(88, 88, 88, 0.31);
+  /* border-left: 3px solid rgba(88, 88, 88, 0.31); */
+  box-shadow: 0px 1px 4px 1px;
+  font-size: 77px;
+  height: 89px;
+  width: 89px;
+  margin: 0;
+  display: inline-block;
+  text-align: center;
+
+  cursor: pointer;
 }
 
 .block:hover {
@@ -108,6 +129,10 @@ button {
   font-weight: bold;
   background: none;
   transition: all 0.2s ease-in-out;
+  position: absolute;
+  margin: 281px 24px 18px 164px;
+  width: 140px;
+  border-radius: 15px;
 }
 
 button:hover {
@@ -152,20 +177,23 @@ button:hover {
 
 .scoreBoard {
 
-  display: inline-block;
-
-  height: 120px;
-  width: 78px;
+  display: block;
+  height: 68px;
+  width: 20px;
 
 
 }
 
 #scoreBoardLeft {
-  margin: 50px 140px 50px 25px;
+  margin: 50px 40px 37px -36px;
+  float:left;
+  padding-top: 104px;
 }
 
 #scoreBoardRight {
-  margin: 50px 26px 49px 151px;
+  margin: 150px 40px 26px 13px;
+  float: right;
+  
 }
 
 .playerNames {
@@ -193,9 +221,7 @@ button:hover {
 }
 
 
-#o {
-  /* default */
-  /* color: #d6d6d6; */
+#o {  
 
   /* turn identifier; */
   color: #5490ff;

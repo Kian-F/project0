@@ -66,10 +66,13 @@ const check_for_winner = () => {
   if (res == player) {
     winner.innerText = "Player's Win!!";
     winner.classList.add("playerWin");
+    scoreO+=1;
+    console.log(scoreO)
     board_full = true;
   } else if (res == computer) {
     winner.innerText = "Computer's Win";
     winner.classList.add("computerWin");
+    scoreX+=1;
     board_full = true;
   } else if (board_full) {
     winner.innerText = "Draw!";
