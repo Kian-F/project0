@@ -1,6 +1,10 @@
 ## TIC TAC TOE Project0 
 The main goal was to make a simple Tic Tac Toe game.
 This project was built as part of the Software Engineering Immersive Course at General Assembly, Sydney 2019.
+## Screenshot
+
+#### Home
+![Home page](/img/TicTacHome.JPG)
 
 ### Big Goals
   - Build a web application from scratch, without a starter codebase
@@ -28,7 +32,4 @@ This project was built as part of the Software Engineering Immersive Course at G
 
 #### Further Development
 * develop AI for the game
-## Screenshot
 
-#### Home
-![Home page](/img/TicTacHome.JPG)
