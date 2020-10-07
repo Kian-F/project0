@@ -28,3 +28,7 @@ This project was built as part of the Software Engineering Immersive Course at G
 
 #### Further Development
 * develop AI for the game
+## Screenshot
+
+#### Home
+![Home page](/img/TicTacHome.JPG)
